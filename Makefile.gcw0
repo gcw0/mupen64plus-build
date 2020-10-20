@@ -19,7 +19,7 @@
 # *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
 # * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-CROSS_COMPILE := mipsel-linux-
+CROSS_COMPILE := /opt/gcw0-toolchain/usr/bin/mipsel-linux-
 CC := $(CROSS_COMPILE)gcc
 SYSROOT := $(shell $(CC) --print-sysroot)
 PKG_CONFIG := env PKG_CONFIG_SYSROOT_DIR=$(SYSROOT) PKG_CONFIG_LIBDIR=$(SYSROOT)/usr/lib/pkgconfig pkg-config
@@ -27,7 +27,7 @@ SDL_CONFIG := $(SYSROOT)/usr/bin/sdl2-config
 
 CFLAGS := -DSDL_VIDEO_OPENGL_ES2 -DMESA_EGL_NO_X11_HEADERS
 # put -Dname=value in CFLAGS for conditional compilation
-OPTFLAGS := -O3 -flto
+OPTFLAGS := -Ofast -fno-builtin -fno-common -mframe-header-opt -march=mips32r2 -mtune=mips32r2 -flto -mplt -mno-fp-exceptions -mno-check-zero-division
 # put -O3 in OPTFLAGS if you want linking to be faster, or -O3 -flto for runtime
 
 UNAME := linux
@@ -70,6 +70,7 @@ core: out
 mupen64plus: out
 	+make -C ../mupen64plus-ui-console/projects/unix $(MAKE_OPTS) all
 	cp ../mupen64plus-ui-console/projects/unix/mupen64plus out/$@
+	hugeedit --text --data out/$@
 
 video-gles2n64: out
 	+make -C ../mupen64plus-video-gles2n64/projects/unix $(MAKE_OPTS) all

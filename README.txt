@@ -22,12 +22,12 @@ $ git clone https://github.com/mupen64plus/mupen64plus-rsp-hle.git
 To use this repository with Nebuleon's version of the Mupen64Plus repositories
 that work on MIPS, you can issue these commands:
 
-$ git clone https://github.com/Nebuleon/mupen64plus-core.git
-$ git clone https://github.com/Nebuleon/mupen64plus-ui-console.git
+$ git clone https://github.com/gcw0/mupen64plus-core.git
+$ git clone https://github.com/gcw0/mupen64plus-ui-console.git
 $ git clone https://github.com/Nebuleon/mupen64plus-input-sdl.git
 $ git clone https://github.com/Nebuleon/mupen64plus-audio-sdl.git
 $ git clone https://github.com/mupen64plus/mupen64plus-video-rice.git
-$ git clone https://github.com/Nebuleon/mupen64plus-video-gles2n64.git
+$ git clone https://github.com/gcw0/mupen64plus-video-gles2n64.git
 $ git clone https://github.com/Nebuleon/mupen64plus-rsp-hle.git
 
 BUILDING FOR PC
